@@ -5,7 +5,7 @@
     - vars/list_color.yml
 
   vars: 
-    - colores: 
+    - color: 
         - gray
         - black
         - white
@@ -13,6 +13,6 @@
   tasks: 
     - name: Print
       ansible.builtin.shell: "echo {{ item }}"
-      loop: "{{ lookup('ansible.builtin.vars', 'colores', wantlist=true) | default(colores)  }}"
+      loop: "{{ lookup('ansible.builtin.vars', 'colores', wantlist=true) | default(color)  }}"
 
 
