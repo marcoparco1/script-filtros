@@ -3,7 +3,6 @@
   hosts: localhost
   vars_files: 
     - vars/list_color.yml
-
   vars:
     color:
       - negro
@@ -11,5 +10,7 @@
       - gris
   tasks: 
     - name: Print
-      ansible.builtin.debug:
-        msg: "{{ color }}"
+      ansible.builtin.shell: "echo {{ item }}"
+      loop: "{{ colores }}"
+
+
