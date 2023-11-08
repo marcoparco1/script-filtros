@@ -3,16 +3,16 @@
   hosts: localhost
   vars_files: 
     - vars/list_color.yml
-
-  vars: 
-    - color: 
-        - gray
-        - black
-        - white
     
   tasks: 
-    - name: Print
+    - name: Print colores_survey
       ansible.builtin.shell: "echo {{ item }}"
-      loop: "{{ lookup('ansible.builtin.vars', 'colores', wantlist=true) | default(color)  }}"
+      loop: "{{ lookup('ansible.builtin.vars', 'colores_survey', wantlist=true) }}"
+      when: colores_survey is defined
+
+    - name: Print colores
+      ansible.builtin.shell: "echo {{ item }}"
+      loop: "{{ colores }}"
+      when: colores_survey is undefined
 
 
