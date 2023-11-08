@@ -1,5 +1,5 @@
 ---
-- name: Encender VMs
+- name: Imprimir Loops
   hosts: localhost
   vars_files: 
     - vars/list_color.yml
@@ -8,4 +8,4 @@
     - name: Print
       ansible.builtin.debug:
         msg: "{{ item }}"
-      loop: "{{ lookup('ansible.builtin.file', 'vars/list_color.yml') }}"
+      loop: "{{ colores }}"
