@@ -8,4 +8,4 @@
     - name: Print
       ansible.builtin.debug:
         msg: "{{ item }}"
-      loop: "{{ colores }}"
+      with_items: "{{ colores }}"
