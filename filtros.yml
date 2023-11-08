@@ -16,7 +16,9 @@
 
     - name: Print colores
       ansible.builtin.shell: "echo {{ item }}"
-      loop: "{{ colores }}"
+      loop:
+        - gray
+        - purple
       when: colores_survey is undefined
 
 
