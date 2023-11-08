@@ -1,0 +1,11 @@
+---
+- name: Encender VMs
+  hosts: localhost
+  vars_files: 
+    - vars/list_color.yml
+  tasks: 
+
+    - name: Print
+      ansible.builtin.debug:
+        msg: "{{ item }}"
+      loop: "{{ lookup('ansible.builtin.file', 'vars/list_color.yml') }}"
