@@ -3,11 +3,7 @@
   hosts: localhost
   vars_files: 
     - vars/list_color.yml
-  vars:
-    color:
-      - negro
-      - verde
-      - gris
+    
   tasks: 
     - name: Print
       ansible.builtin.shell: "echo {{ item }}"
