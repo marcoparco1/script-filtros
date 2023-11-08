@@ -12,5 +12,4 @@
   tasks: 
     - name: Print
       ansible.builtin.debug:
-        msg: "{{ item }}"
-      with_items: "{{ color }}"
+        msg: "{{ color }}"
