@@ -3,10 +3,6 @@
   hosts: localhost
   vars_files: 
     - vars/list_color.yml
-  vars:
-    - colores:
-        - gray
-        - purple
     
   tasks: 
     - name: Print colores_survey
@@ -16,9 +12,7 @@
 
     - name: Print colores
       ansible.builtin.shell: "echo {{ item }}"
-      loop:
-        - gray
-        - purple
+      loop: "{{ colores }}"
       when: colores_survey is undefined
 
 
