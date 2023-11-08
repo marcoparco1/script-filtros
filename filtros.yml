@@ -7,6 +7,6 @@
   tasks: 
     - name: Print
       ansible.builtin.shell: "echo {{ item }}"
-      loop: "{{ colores | dict2items  }}"
+      loop: "{{ lookup('ansible.builtin.vars', 'colores', wantlist=true)   }}"
 
 
