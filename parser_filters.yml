@@ -1,17 +1,8 @@
 ---
 - name: Imprimir Loops
   hosts: localhost
-  vars_files: 
-    - vars/list_color.yml
     
   tasks: 
     - name: Print colores_survey
       ansible.builtin.shell: "echo {{ item }}"
-      loop: "{{ lookup('ansible.builtin.vars', 'colores_survey', wantlist=true) }}"
-      when: colores_survey|length > 0
-
-
-    - name: Print colores
-      ansible.builtin.shell: "echo {{ item }}"
-      loop: "{{ colores }}"
-      when: colores_survey|length == 0
+      loop: "{{ colores_survey }}
