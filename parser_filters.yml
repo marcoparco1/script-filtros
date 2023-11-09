@@ -9,6 +9,6 @@
   tasks:       
     - name: Print colores_survey 
       ansible.builtin.shell: "echo {{ item }}"
-      loop: "{{ list_colores_survey | list }}"
-    
+      loop: "{{ list_colores_survey | list }}"  
+      when: colores_survey|length > 0
 
