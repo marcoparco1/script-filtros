@@ -12,7 +12,7 @@
       ansible.builtin.debug:
         msg: There aren't items
       vars:
-          - get_colores_survey: "{{ list_colores_survey | default(item)}}"
+        - get_colores_survey: "{{ list_colores_survey | default(item)}}"
       loop: "{{ colores_file }}"
       
     - name: Print colores_survey
