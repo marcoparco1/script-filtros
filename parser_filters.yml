@@ -11,7 +11,7 @@
     - name: Review there are items
       ansible.builtin.debug:
         msg: There aren't items
-        vars:
+      vars:
           - get_colores_survey: "{{ list_colores_survey | default(item)}}"
       loop: "{{ colores_file }}"
       
