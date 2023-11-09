@@ -5,4 +5,4 @@
   tasks: 
     - name: Print colores_survey
       ansible.builtin.shell: "echo {{ item }}"
-      loop: "{{ colores_survey }}
+      loop: "{{ colores_survey }}"
