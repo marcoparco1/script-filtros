@@ -5,14 +5,12 @@
     - vars/list_color.yml
   vars:
     - list_colores_survey: "{{ colores_survey | split(',') }}"
-    - get_colores_survey: []
+    - get_colores_survey: "{{ list_colores_survey | default(item)}}"
     
   tasks: 
     - name: Review there are items
       ansible.builtin.debug:
         msg: There aren't items
-      vars:
-        - get_colores_survey: "{{ list_colores_survey | default(item)}}"
       loop: "{{ colores_file }}"
       
     - name: Print colores_survey
