@@ -14,6 +14,7 @@
       vars:
         - get_colores_survey: "{{ list_colores_survey | default(item)}}"
       loop: "{{ colores_file }}"
+      register: get_colores_survey
       
     - name: Print colores_survey
       ansible.builtin.shell: "echo {{ item }}"
