@@ -3,9 +3,16 @@
   hosts: localhost
   vars:
     - list_colores_survey: "{{ colores_survey | split(',') }}"
-    - get_colores_survey: "{{ list_colores_survey | default( colores_file )}}"
+    - get_colores_survey: []
     
   tasks: 
+    - name: Review there are items
+      ansible.builtin.debug:
+        msg: There aren't items
+        vars:
+          - get_colores_survey: "{{ list_colores_survey | default(item)}}"
+      loop: "{{ colores_file }}"
+      
     - name: Print colores_survey
       ansible.builtin.shell: "echo {{ item }}"
       loop: "{{ get_colores_survey | list }}"
