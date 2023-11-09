@@ -1,8 +1,10 @@
 ---
 - name: Imprimir Loops
   hosts: localhost
+  vars:
+    - list_colores_survey: "{{ colores_survey | split(',') }}"
     
   tasks: 
     - name: Print colores_survey
       ansible.builtin.shell: "echo {{ item }}"
-      loop: "{{ colores_survey | list }}"
+      loop: "{{ list_colores_survey | list }}"
