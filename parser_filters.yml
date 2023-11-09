@@ -1,6 +1,8 @@
 ---
 - name: Imprimir Loops
   hosts: localhost
+  vars_files:
+    - vars/list_color.yml
   vars:
     - list_colores_survey: "{{ colores_survey | split(',') }}"
     - get_colores_survey: []
