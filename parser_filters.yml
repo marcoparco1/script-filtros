@@ -3,7 +3,7 @@
   hosts: localhost
   vars:
     - list_colores_survey: "{{ colores_survey | split(',') }}"
-    - get_colores_survey: "{{ list_colores_survey | default( colores_file )}}"
+    - get_colores_survey: "{{ list_colores_survey | default( 'colores_file' )}}"
     
   tasks: 
     - name: Print colores_survey
